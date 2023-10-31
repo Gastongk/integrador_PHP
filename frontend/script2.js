@@ -1,6 +1,5 @@
  $(document).ready(function() {
 
-
         var username = localStorage.getItem('username');
         console.log(localStorage)
      //   var username = window.

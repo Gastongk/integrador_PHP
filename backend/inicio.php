@@ -14,7 +14,6 @@ if (isset($_POST['crear_pagina'])) {
         $contenido = $_POST['contenido'];
         $categoriaId = $_POST['categoria_id']; 
 
-     
         $nuevaPagina = Pagina::crearPagina($titulo, $contenido, $categoriaId, $_SESSION['usuario']->getId());
 
         if ($nuevaPagina instanceof Pagina) {
