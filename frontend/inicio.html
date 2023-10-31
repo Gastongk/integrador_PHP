@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">CMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" id="categoriasMenu" aria-labelledby="categoriasDropdown">
+                            <!--     <li><a class="dropdown-item" href="#">Todas</a></li> -->
+                                <!-- categorias de la base de datos -->
+                         </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                             
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h2>Bienvenido, <span id="nombreUsuario"></span>!</h2>
+             
+                <button id="cerrarSesion" class="btn btn-danger">Cerrar Sesión</button>
+               </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <button id="btnAgregar" class="btn btn-primary">Agregar</button>
+                    <button id="btnCargar" class="btn btn-primary">Cargar</button>
+                    <button id="btnActualizar" class="btn btn-primary">Actualizar</button>
+                    <button id="btnEliminar" class="btn btn-primary">Eliminar</button>
+                </div>
+                
+                <!-- Formulario para agregar/editar página -->
+                <form id="paginaForm">
+                    <div class="mb-3">
+                        <label for="id_pagina" class="form-label">ID Página</label>
+                        <input type="text" class="form-control" id="id_pagina" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="titulo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contenido" class="form-label">Contenido</label>
+                        <textarea class="form-control" id="contenido" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoriaId" class="form-label">ID Categoría</label>
+                        <input type="number" class="form-control" id="categoriaId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="usuarioId" class="form-label">ID Usuario</label>
+                        <input type="number" class="form-control" id="usuarioId" required>
+                    </div>
+                </form>
+                
+                <!-- Tabla de páginas -->
+                <div id="paginas">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Contenido</th>
+                                <th>ID Categoría</th>
+                                <th>ID Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
+
+
