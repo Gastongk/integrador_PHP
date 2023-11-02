@@ -21,13 +21,10 @@
                 <ul class="navbar-nav">
                   
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
+                        <a class="nav-link  " href="#" >
+                            Notas por usuario
                         </a>
-                        <ul class="dropdown-menu" id="categoriasMenu" aria-labelledby="categoriasDropdown">
-                            <!--     <li><a class="dropdown-item" href="#">Todas</a></li> -->
-                                <!-- categorias de la base de datos -->
-                         </ul>
+                        
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -58,7 +55,7 @@
                     <button id="btnEliminar" class="btn btn-primary">Eliminar</button>
                 </div>
                 
-                <!-- Formulario -->
+                <!-- Formulario para agregar/editar página -->
                 <form id="paginaForm">
                     <div class="mb-3">
                         <label for="id_pagina" class="form-label">ID Página</label>
@@ -82,26 +79,24 @@
                     </div>
                 </form>
              
-                <div id="paginas">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Título</th>
-                                <th>Contenido</th>
-                                <th>ID Categoría</th>
-                                <th>ID Usuario</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabla-body">
-                           
-                        </tbody>
-                    </table>
-                </div>
+                <table id="tabla-paginas" class="table ">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Contenido</th>
+                            <th>Categoría ID</th>
+                            <th>Usuario ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-body">
+                   
+                    </tbody>
+                </table> 
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
     <script src="script2.js"></script>
 </body>
 </html>

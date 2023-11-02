@@ -18,6 +18,14 @@ class ABM {
         return $notas;
     }
 
+    public function listarPaginasPorUsuario($usuarioId) {
+        // Llama al método en la clase Usuario para obtener las páginas
+        $paginas = Usuario::obtenerPaginasPorUsuario($usuarioId);
+    
+        return $paginas;
+    }
+    
+
     public function agregar($titulo, $contenido, $categoriaId, $usuarioId) {
         if (Pagina::crearPagina($titulo, $contenido, $categoriaId, $usuarioId)) {
             echo json_encode(true);
@@ -76,17 +84,24 @@ $abm = new ABM();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['action']) && $_GET['action'] === 'listar') {
-        $paginas = $abm->listar(); 
+        $paginas = $abm->listar();
         echo json_encode($paginas);
         exit;
-    } elseif (isset($_GET['action']) && $_GET['action'] === 'listarPorCategoria') {
+    } elseif (isset($_GET['action']) && $_GET['action'] === 'listarPorUsuario') {
+        if (isset($_GET['usuarioId'])) {
+            $usuarioId = $_GET['usuarioId'];
+            $paginas = $abm->listarPaginasPorUsuario($usuarioId);
+            echo json_encode($paginas);
+            exit;
+        }
+    }elseif (isset($_GET['action']) && $_GET['action'] === 'listarPorCategoria') {
         if (isset($_GET['categoriaId'])) {
             $categoriaId = $_GET['categoriaId'];
             $notas = $abm->listarNotasPorCategoria($categoriaId);
             echo json_encode($notas);
             exit;
         }
-    }
+    } 
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

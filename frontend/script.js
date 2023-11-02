@@ -56,6 +56,7 @@ $(document).ready(function() {
                 if (response.success) {
                     // respuesta exitosa al iniciar sesión
                     localStorage.setItem('username', response.data.username);
+                    localStorage.setItem('userId', response.data.id);
                  //   window.localStorage.token = response.data.username;
                     console.log(response.data.username)
                     $("#mensajeLogin").html(response.message);
@@ -161,6 +162,3 @@ $(document).ready(function() {
     
  });
     
-
-
-

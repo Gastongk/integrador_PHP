@@ -26,26 +26,5 @@ class Categorias {
         return $paginas;
     }
 }
-/* 
-// Obtener la lista de categorías
-$categorias = Categorias::listarCategorias();
 
-// Mostrar las notas por categoría (reemplaza el ID con el ID de la categoría deseada)
-$categoriaId = 2; // Reemplaza con el ID de la categoría que deseas mostrar
-
-$notasPorCategoria = Categorias::listarNotasPorCategoria($categoriaId);
-
-// Imprimir la lista de categorías
-echo "Categorías disponibles:<br>";
-foreach ($categorias as $categoria) {
-    echo "{$categoria['id']} - {$categoria['nombre']}<br>";
-}
-
-// Imprimir las notas por categoría
-echo "<br>Notas en la categoría seleccionada:<br>";
-foreach ($notasPorCategoria as $nota) {
-    echo "Título: {$nota['titulo']}<br>";
-    echo "Contenido: {$nota['contenido']}<br>";
-    echo "<hr>";
-} */
 ?>

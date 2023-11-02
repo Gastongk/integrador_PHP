@@ -1,9 +1,56 @@
  $(document).ready(function() {
-
+  
         var username = localStorage.getItem('username');
-        console.log(localStorage)
+        var userId = parseInt(localStorage.getItem('userId'));
+      //  console.log(localStorage)
+        console.log('username:', username);
+        console.log('userId:', userId);
      //   var username = window.
-        if (username) {
+       
+     
+     listarNotasPorUsuario(userId); 
+    
+    
+    function listarNotasPorUsuario(usuarioId) {
+        var url = '../backend/abm.php?action=listarPorUsuario'; 
+    
+        var requestData = {
+            accion: 'listarPorUsuario',
+            usuarioId: usuarioId
+        };
+    
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            data: requestData,
+            success: function (data) {
+        /*         console.log(response); */
+                if (data.length > 0) {
+                    var tabla = $('#tabla-body');
+                    tabla.empty();
+    
+                    $.each(data, function (index, pagina) {
+                        var row = '<tr>' +
+                            '<td>' + pagina.id + '</td>' +
+                            '<td>' + pagina.titulo + '</td>' +
+                            '<td>' + pagina.contenido + '</td>' +
+                            '<td>' + pagina.categoriaId + '</td>' +
+                            '<td>' + pagina.usuarioId + '</td>' +
+                            '</tr>';
+                        tabla.append(row);
+                    });
+                } else {
+                    $('#tabla-body').empty().append('<tr><td colspan="5">No hay páginas para mostrar</td></tr>');
+                }
+            },
+            error: function (error) {
+                alert('Error al cargar la lista de páginas por usuario.');
+            }
+        });
+    }
+     
+     if (username) {
 
             document.getElementById('nombreUsuario').innerHTML = username;
         }
@@ -159,6 +206,8 @@
             }
         });
     });
+
 });
+
 
 

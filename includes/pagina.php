@@ -1,7 +1,5 @@
 <?php
 require_once 'usuario.php';
-
-
 class Pagina {
     private $id;
     private $titulo;
@@ -37,10 +35,9 @@ class Pagina {
         return $this->usuarioId;
     }
 
-    // Validación de datos y lógica de creación de páginas
+    
     public static function crearPagina($titulo, $contenido, $categoriaId, $usuarioId) {
-        // Agregar validación de datos, como comprobar que los campos no estén vacíos y que la categoría y usuario existan.
-
+       
         $sql = "INSERT INTO paginas (titulo, contenido, categoria_id, usuario_id) VALUES (?, ?, ?, ?)";
         $parametros = [$titulo, $contenido, $categoriaId, $usuarioId];
 
@@ -48,7 +45,7 @@ class Pagina {
             ConexionDB::getInstancia()->ejecutarConsulta($sql, $parametros);
             return true;
         } catch (Exception $e) {
-            // Lanzar una excepción con un mensaje descriptivo en lugar de simplemente devolver `false`.
+            
             throw new Exception("Error al crear la página: " . $e->getMessage());
         }
     }
@@ -117,8 +114,7 @@ class Pagina {
             throw new Exception("Error al buscar la página: " . $e->getMessage());
         }
     }
-    
-    
+        
     public static function actualizarPagina($id, $titulo, $contenido, $categoriaId, $usuarioId) {
         $sql = "UPDATE paginas SET titulo = ?, contenido = ?, categoria_id = ?, usuario_id = ? WHERE id = ?";
         $parametros = [$titulo, $contenido, $categoriaId, $usuarioId, $id];
@@ -143,4 +139,3 @@ class Pagina {
         }
     }
 }
-

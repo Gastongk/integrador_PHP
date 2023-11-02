@@ -85,5 +85,31 @@ class Usuario {
     
         echo json_encode($response);
     }
+
+    public static function obtenerPaginasPorUsuario($usuarioId) {
+        $sql = "SELECT id, titulo, contenido, categoria_id, usuario_id FROM paginas WHERE usuario_id = ?";
+        $parametros = [$usuarioId];
+    
+        try {
+              $resultados = ConexionDB::getInstancia()->obtenerResultados($sql, $parametros);
+            
+            $paginas = [];
+            foreach($resultados as $r){
+                $pagina = new stdClass;
+                $pagina->id = $r['id'];
+                $pagina->titulo = $r['titulo'];
+                $pagina->contenido = $r['contenido'];
+                $pagina->categoriaId = $r['categoria_id'];
+                $pagina->usuarioId = $r['usuario_id'];
+                $paginas[] = $pagina;
+            }
+            return $paginas;
+         
+        } catch (Exception $e) {
+            throw new Exception("Error  al cargar las  páginas por usuario: " . $e->getMessage());
+        }
+    
+    }
 }
+
 ?>
